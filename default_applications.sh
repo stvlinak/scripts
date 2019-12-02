@@ -30,6 +30,11 @@ unzip KeeChallenge_1.5.zip
 sudo mv ./KeeChallenge_1.5/64bit/* /usr/lib/keepass2/Plugins/
 sudo mv ./KeeChallenge_1.5/* /usr/lib/keepass2/Plugins/
 
+wget https://github.com/troennes/quartz-theme-typora/archive/master.zip
+unzip master.zip
+
+# TODO: Install Quartz themes in Typora.
+
 curl --remote-name https://prerelease.keybase.io/keybase_amd64.deb
 sudo apt install -y ./keybase_amd64.deb
 run_keybase
