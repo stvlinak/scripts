@@ -14,14 +14,12 @@ sudo apt install -y apt-transport-https
 
 sudo apt update
 
-sudo apt install -y keepass2 libreoffice virtualbox kolourpaint gnome-tweaks gnome-calendar compizconfig-settings-manager gnome-photos nextcloud-desktop xdotool yubikey-personalization-gui typora remmina curl openssh-server virtualbox-guest-additions-iso virtualbox-ext-pack dotnet-sdk-3.0 git vlc net-tools
+sudo apt install -y keepass2 libreoffice virtualbox kolourpaint gnome-tweaks gnome-calendar compizconfig-settings-manager gnome-photos nextcloud-desktop xdotool yubikey-personalization-gui typora remmina curl openssh-server virtualbox-guest-additions-iso virtualbox-ext-pack dotnet-sdk-3.0 powershell git vlc net-tools
 
 sudo modprobe vboxdrv
 
 sudo snap install signal-desktop telegram-desktop discord viber-unofficial
 sudo snap install --classic code
-
-cd ~/Downloads
 
 wget https://bitbucket.org/devinmartin/keeotp/downloads/KeeOtp-1.3.9.zip
 unzip KeeOtp-1.3.9.zip
