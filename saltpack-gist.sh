@@ -20,7 +20,7 @@ SALTPACK=$(echo $MESSAGE | keybase encrypt $RECIPIENT)
 
 TIMESTAMP=$(date +%s)
 
-PAYLOAD='{"description": "A saltpack for '"$RECIPIENT"'","public": false,"files": {"'"$RECIPIENT-$TIMESTAMP"'.saltpack": {"content": "'"$SALTPACK"'"}}}'
+PAYLOAD='{ "description": "A saltpack for '"$RECIPIENT"'", "public": false, "files": { "'"$RECIPIENT-$TIMESTAMP"'.saltpack": { "content": "'"$SALTPACK"'" } } }'
 
 RESPONSE=$(curl -u "$USERNAME:$PASSWORD" -sS -H "Content-Type: application/json" -d "$(echo $PAYLOAD)" https://api.github.com/gists)
 
