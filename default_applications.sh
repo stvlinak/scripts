@@ -18,8 +18,11 @@ sudo apt install -y keepass2 libreoffice virtualbox kolourpaint gnome-tweaks gno
 
 sudo modprobe vboxdrv
 
-sudo snap install signal-desktop telegram-desktop discord viber-unofficial
+sudo snap install signal-desktop telegram-desktop discord
 sudo snap install --classic code
+
+wget https://download.cdn.viber.com/cdn/desktop/Linux/viber.deb
+sudo dpkg -i viber.deb
 
 wget https://bitbucket.org/devinmartin/keeotp/downloads/KeeOtp-1.3.9.zip
 unzip KeeOtp-1.3.9.zip
@@ -33,7 +36,7 @@ sudo mv ./KeeChallenge_1.5/* /usr/lib/keepass2/Plugins/
 wget https://github.com/troennes/quartz-theme-typora/archive/master.zip
 unzip master.zip
 
-# TODO: Install Quartz themes in Typora.
+cp ./quartz-theme-typora-master/theme/*  ~/.config/Typora/themes/
 
 curl --remote-name https://prerelease.keybase.io/keybase_amd64.deb
 sudo apt install -y ./keybase_amd64.deb
