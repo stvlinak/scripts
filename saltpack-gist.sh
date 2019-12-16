@@ -3,8 +3,7 @@
 RECIPIENT=$1
 MESSAGE=$2
 
-USERNAME=stigvoss
-PASSWORD=$(cat ghpasswd)
+CREDENTIALS=$(cat .ghcredentials)
 
 if [ -z "$RECIPIENT" ]; then
     echo "Recipient is not set."
@@ -22,7 +21,7 @@ TIMESTAMP=$(date +%s)
 
 PAYLOAD='{ "description": "A saltpack for '"$RECIPIENT"'", "public": false, "files": { "'"$RECIPIENT-$TIMESTAMP"'.saltpack": { "content": "'"$SALTPACK"'" } } }'
 
-RESPONSE=$(curl -u "$USERNAME:$PASSWORD" -sS -H "Content-Type: application/json" -d "$(echo $PAYLOAD)" https://api.github.com/gists)
+RESPONSE=$(curl -u "$CREDENTIALS" -sS -H "Content-Type: application/json" -d "$(echo $PAYLOAD)" https://api.github.com/gists)
 
 RAW_URL=$(echo $RESPONSE | jq -r .files[].raw_url)
 
