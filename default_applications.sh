@@ -18,8 +18,11 @@ sudo apt install -y keepass2 libreoffice virtualbox kolourpaint gnome-tweaks gno
 
 sudo modprobe vboxdrv
 
-sudo snap install signal-desktop telegram-desktop discord
+sudo snap install signal-desktop telegram-desktop
 sudo snap install --classic code
+
+wget https://dl.discordapp.net/apps/linux/0.0.9/discord-0.0.9.deb
+sudo dpkg -i discord-0.0.9.deb
 
 wget https://download.cdn.viber.com/cdn/desktop/Linux/viber.deb
 sudo dpkg -i viber.deb
