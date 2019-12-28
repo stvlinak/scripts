@@ -2,6 +2,8 @@
 
 cd /tmp
 
+wget https://github.com/stigvoss/scripts/blob/master/assets/master_branch_multi_account_containers-6.2.0-fx.xpi ./Downloads/custom_containers_build.xpi
+
 wget -qO - https://typora.io/linux/public-key.asc | sudo apt-key add -
 sudo add-apt-repository 'deb https://typora.io/linux ./'
 
@@ -46,4 +48,13 @@ curl --remote-name https://prerelease.keybase.io/keybase_amd64.deb
 sudo apt install -y ./keybase_amd64.deb
 run_keybase
 
+https://github.com/stigvoss/scripts/blob/master/assets/tresorit_installer.run
+sh tresorit_installer.run
 
+mkdir ~/.local/bin
+
+wget https://raw.githubusercontent.com/stigvoss/scripts/master/saltpack-gist.sh
+https://raw.githubusercontent.com/stigvoss/scripts/master/new_address.sh
+
+mv saltpack-gist.sh ~/.local/bin
+mv new_address.sh ~/.local/bin
