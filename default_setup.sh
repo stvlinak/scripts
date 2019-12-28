@@ -58,3 +58,7 @@ https://raw.githubusercontent.com/stigvoss/scripts/master/new_address.sh
 
 mv saltpack-gist.sh ~/.local/bin
 mv new_address.sh ~/.local/bin
+
+read -p "Catch all domain name: " CATCHALL_DOMAIN
+
+echo $CATCHALL_DOMAIN >> ~/.profile
