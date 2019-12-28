@@ -61,4 +61,4 @@ mv new_address.sh ~/.local/bin
 
 read -p "Catch all domain name: " CATCHALL_DOMAIN
 
-echo $CATCHALL_DOMAIN >> ~/.profile
+echo "export CATCHALL_DOMAIN=$CATCHALL_DOMAIN" >> ~/.profile
