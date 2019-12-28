@@ -14,9 +14,9 @@ sudo apt install -y apt-transport-https
 
 sudo apt update
 
-sudo snap remove gnome-calculator
+sudo snap remove gnome-calculator gnome-system-monitor gnome-characters
 
-sudo apt install -y gnome-calculator keepass2 libreoffice virtualbox kolourpaint gnome-tweaks gnome-calendar compizconfig-settings-manager gnome-photos nextcloud-desktop xdotool yubikey-personalization-gui typora remmina curl openssh-server virtualbox-guest-additions-iso virtualbox-ext-pack dotnet-sdk-3.0 powershell git vlc net-tools
+sudo apt install -y gnome-calculator gnome-system-monitor gnome-characters keepass2 libreoffice virtualbox kolourpaint gnome-tweaks gnome-calendar compizconfig-settings-manager gnome-photos nextcloud-desktop xdotool yubikey-personalization-gui typora remmina curl openssh-server virtualbox-guest-additions-iso virtualbox-ext-pack dotnet-sdk-3.0 powershell git vlc net-tools
 
 sudo modprobe vboxdrv
 
