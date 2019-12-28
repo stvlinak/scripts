@@ -14,12 +14,13 @@ sudo apt install -y apt-transport-https
 
 sudo apt update
 
-sudo apt install -y keepass2 libreoffice virtualbox kolourpaint gnome-tweaks gnome-calendar compizconfig-settings-manager gnome-photos nextcloud-desktop xdotool yubikey-personalization-gui typora remmina curl openssh-server virtualbox-guest-additions-iso virtualbox-ext-pack dotnet-sdk-3.0 powershell git vlc net-tools
-
-sudo modprobe vboxdrv
-
 sudo snap install signal-desktop telegram-desktop
 sudo snap install --classic code
+sudo snap remove gnome-calculator gnome-system-monitor gnome-characters
+
+sudo apt install -y gnome-calculator gnome-system-monitor gnome-characters keepass2 libreoffice virtualbox kolourpaint gnome-tweaks gnome-calendar compizconfig-settings-manager gnome-photos nextcloud-desktop xdotool yubikey-personalization-gui typora remmina curl openssh-server virtualbox-guest-additions-iso virtualbox-ext-pack dotnet-sdk-3.0 powershell git vlc net-tools
+
+sudo modprobe vboxdrv
 
 wget https://dl.discordapp.net/apps/linux/0.0.9/discord-0.0.9.deb
 sudo dpkg -i discord-0.0.9.deb
