@@ -22,7 +22,11 @@ sudo apt install -y vscode.deb
 sudo snap install signal-desktop telegram-desktop
 sudo snap remove gnome-calculator gnome-system-monitor gnome-characters
 
+<<<<<<< HEAD
 sudo apt install -y gnome-calculator gnome-system-monitor gnome-characters keepass2 libreoffice virtualbox kolourpaint gnome-tweaks gnome-calendar compizconfig-settings-manager gnome-photos nextcloud-desktop xdotool yubikey-personalization-gui typora remmina curl openssh-server virtualbox-guest-additions-iso virtualbox-ext-pack dotnet-sdk-3.0 powershell git vlc net-tools xclip
+=======
+sudo apt install -y gnome-calculator gnome-system-monitor gnome-characters keepass2 libreoffice virtualbox kolourpaint gnome-tweaks gnome-calendar compizconfig-settings-manager gnome-photos nextcloud-desktop xdotool yubikey-personalization-gui typora remmina curl openssh-server virtualbox-guest-additions-iso virtualbox-ext-pack dotnet-sdk-3.0 powershell git net-tools
+>>>>>>> a2d3d1fc75c08716605199bf807a17207664e933
 
 sudo modprobe vboxdrv
 
