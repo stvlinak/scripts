@@ -2,4 +2,4 @@
 
 CONTENT=$1
 
-qrencode -t UTF8 "$1" | cat
+qrencode -t UTF8 "$CONTENT" | cat
