@@ -1,5 +1,7 @@
 #!/bin/bash
 
+set -e
+
 cd /tmp
 
 wget https://github.com/stigvoss/scripts/blob/master/assets/master_branch_multi_account_containers-6.2.0-fx.xpi ./Downloads/custom_containers_build.xpi
