@@ -12,8 +12,6 @@ install()
         exit
     fi
 
-    set_catchall_domain
-
     add_typora_repo
     add_microsoft_repo
 
@@ -34,12 +32,6 @@ install()
     install_tresorit
     install_keybase
     install_dotbash
-}
-
-set_catchall_domain()
-{
-    read -p "Catch all domain name: " CATCHALL_DOMAIN
-    echo "export CATCHALL_DOMAIN=$CATCHALL_DOMAIN" >> ~/.profile
 }
 
 add_typora_repo()
