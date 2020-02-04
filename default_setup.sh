@@ -104,7 +104,7 @@ install_apt_packages()
 
 install_virtualbox()
 {
-    echo virtualbox-ext-pack virtualbox-ext-pack/license select true | debconf-set-selections
+    echo virtualbox-ext-pack virtualbox-ext-pack/license select true | sudo debconf-set-selections
 
     sudo apt install -y virtualbox \
         virtualbox-guest-additions-iso \
