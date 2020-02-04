@@ -7,8 +7,21 @@ cd /tmp
 
 install()
 {
+    if [ "$EUID" -eq 0 ]; then
+        echo "Please run unprivileged."
+        exit
+    fi
+
     set_catchall_domain
 
+    sudo privileged_install
+
+    install_keybase
+    install_dotbash
+}
+
+privileged_install()
+{
     add_typora_repo
     add_microsoft_repo
 
@@ -22,12 +35,9 @@ install()
     install_vscode
     install_discord
     install_viber
-    install_keybase
 
     install_keepass2_plugins
     install_typora_themes
-
-    install_dotbash
 }
 
 set_catchall_domain()
@@ -109,13 +119,13 @@ install_vscode()
 install_discord()
 {
     wget https://dl.discordapp.net/apps/linux/0.0.9/discord-0.0.9.deb
-    sudo apt install ./discord-0.0.9.deb
+    sudo apt install -y ./discord-0.0.9.deb
 }
 
 install_viber()
 {
     wget https://download.cdn.viber.com/cdn/desktop/Linux/viber.deb
-    sudo apt install ./viber.deb
+    sudo apt install -y ./viber.deb
 }
 
 install_keybase()
