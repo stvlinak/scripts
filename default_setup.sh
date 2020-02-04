@@ -17,10 +17,10 @@ install()
     add_typora_repo
     add_microsoft_repo
 
-    replace_system_snap_packages
-
-    install_snap_packages
     install_apt_packages
+
+    replace_system_snap_packages
+    install_snap_packages
 
     install_virtualbox
 
