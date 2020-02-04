@@ -39,7 +39,7 @@ set_catchall_domain()
 
 add_nextcloud_repo()
 {
-    sudo add-apt-repository ppa:nextcloud-devs/client
+    sudo add-apt-repository -y ppa:nextcloud-devs/client
 }
 
 add_typora_repo()
