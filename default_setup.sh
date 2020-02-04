@@ -36,10 +36,6 @@ install()
     install_dotbash
 }
 
-privileged_install()
-{
-}
-
 set_catchall_domain()
 {
     read -p "Catch all domain name: " CATCHALL_DOMAIN
