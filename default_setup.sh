@@ -109,13 +109,13 @@ install_vscode()
 install_discord()
 {
     wget https://dl.discordapp.net/apps/linux/0.0.9/discord-0.0.9.deb
-    sudo dpkg -i discord-0.0.9.deb
+    sudo apt install ./discord-0.0.9.deb
 }
 
 install_viber()
 {
     wget https://download.cdn.viber.com/cdn/desktop/Linux/viber.deb
-    sudo dpkg -i viber.deb
+    sudo apt install ./viber.deb
 }
 
 install_keybase()
