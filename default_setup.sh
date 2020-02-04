@@ -7,10 +7,7 @@ cd /tmp
 
 install()
 {
-    if [ "$EUID" -eq 0 ]; then
-        echo "Please run unprivileged."
-        exit
-    fi
+    init
 
     add_typora_repo
     add_microsoft_repo
@@ -32,6 +29,16 @@ install()
     install_tresorit
     install_keybase
     install_dotbash
+}
+
+init()
+{
+    if [ "$EUID" -eq 0 ]; then
+        echo "Please run unprivileged."
+        exit
+    fi
+
+    . /etc/lsb-release
 }
 
 add_typora_repo()
@@ -66,6 +73,10 @@ install_snap_packages()
 {
     sudo snap install signal-desktop \
         telegram-desktop
+
+    if [[ $DISTRIB_RELEASE == "18.04" ]]; then
+        sudo snap install communitheme
+    fi
 }
 
 install_apt_packages()
