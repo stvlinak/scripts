@@ -1,9 +1,9 @@
 #!/bin/bash
 
-set -e
+set -euo pipefail
+IFS=$'\n\t'
 
 cd /tmp
-
 
 install()
 {
