@@ -153,15 +153,15 @@ install_keyotp_plugin()
 {
     wget https://bitbucket.org/devinmartin/keeotp/downloads/KeeOtp-1.3.9.zip
     unzip KeeOtp-1.3.9.zip
-    sudo mv -r ./dlls/* /usr/lib/keepass2/Plugins/
+    sudo mv ./dlls/* /usr/lib/keepass2/Plugins/
 }
 
 install_keechallenge_plugin()
 {
     wget https://github.com/brush701/keechallenge/releases/download/1.5/KeeChallenge_1.5.zip
     unzip KeeChallenge_1.5.zip
-    sudo mv -r ./KeeChallenge_1.5/64bit/* /usr/lib/keepass2/Plugins/
-    sudo mv -r ./KeeChallenge_1.5/* /usr/lib/keepass2/Plugins/
+    sudo mv ./KeeChallenge_1.5/64bit/* /usr/lib/keepass2/Plugins/
+    sudo mv ./KeeChallenge_1.5/* /usr/lib/keepass2/Plugins/
 }
 
 install_typora_themes()
@@ -173,7 +173,7 @@ install_typora_themes()
     wget https://github.com/troennes/quartz-theme-typora/archive/master.zip
     unzip master.zip
 
-    cp ./quartz-theme-typora-master/theme/*  ~/.config/Typora/themes/
+    mv ./quartz-theme-typora-master/theme/*  ~/.config/Typora/themes/
 }
 
 install_dotbash()
