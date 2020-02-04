@@ -16,6 +16,7 @@ install()
 
     sudo privileged_install
 
+    install_tresorit
     install_keybase
     install_dotbash
 }
