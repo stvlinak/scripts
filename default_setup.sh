@@ -160,6 +160,10 @@ install_keechallenge_plugin()
 
 install_typora_themes()
 {
+    if [[ ! -e ~/.config/Typora/themes/ ]]; then
+        mkdir ~/.config/Typora/themes/
+    fi
+
     wget https://github.com/troennes/quartz-theme-typora/archive/master.zip
     unzip master.zip
 
