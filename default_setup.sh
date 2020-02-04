@@ -139,7 +139,7 @@ install_keybase()
 
 install_tresorit()
 {
-    wget https://github.com/stigvoss/scripts/blob/master/assets/tresorit_installer.run?raw=true
+    wget https://github.com/stigvoss/scripts/blob/master/assets/tresorit_installer.run?raw=true -O tresorit_installer.run
     sh ./tresorit_installer.run
 }
 
