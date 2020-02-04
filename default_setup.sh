@@ -9,7 +9,6 @@ install()
 {
     set_catchall_domain
 
-    add_nextcloud_repo
     add_typora_repo
     add_microsoft_repo
 
@@ -35,11 +34,6 @@ set_catchall_domain()
 {
     read -p "Catch all domain name: " CATCHALL_DOMAIN
     echo "export CATCHALL_DOMAIN=$CATCHALL_DOMAIN" >> ~/.profile
-}
-
-add_nextcloud_repo()
-{
-    sudo add-apt-repository -y ppa:nextcloud-devs/client
 }
 
 add_typora_repo()
@@ -85,7 +79,6 @@ install_apt_packages()
         gnome-calendar \
         compizconfig-settings-manager \
         gnome-photos \
-        nextcloud-desktop \
         xdotool \
         yubikey-personalization-gui \
         typora \
