@@ -103,6 +103,8 @@ install_apt_packages()
 
 install_virtualbox()
 {
+    sudo ACCEPT_EULA=Y
+
     sudo apt install -y virtualbox \
         virtualbox-guest-additions-iso \
         virtualbox-ext-pack
