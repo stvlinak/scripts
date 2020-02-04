@@ -98,12 +98,13 @@ install_apt_packages()
         powershell \
         git \
         net-tools \
-        xclip
+        xclip \
+        debconf-utils
 }
 
 install_virtualbox()
 {
-    sudo ACCEPT_EULA=Y
+    echo virtualbox-ext-pack virtualbox-ext-pack/license select true | debconf-set-selections
 
     sudo apt install -y virtualbox \
         virtualbox-guest-additions-iso \
