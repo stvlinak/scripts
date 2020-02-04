@@ -9,6 +9,7 @@ install()
 {
     set_catchall_domain
 
+    add_nextcloud_repo
     add_typora_repo
     add_microsoft_repo
 
@@ -34,6 +35,11 @@ set_catchall_domain()
 {
     read -p "Catch all domain name: " CATCHALL_DOMAIN
     echo "export CATCHALL_DOMAIN=$CATCHALL_DOMAIN" >> ~/.profile
+}
+
+add_nextcloud_repo()
+{
+    sudo add-apt-repository ppa:nextcloud-devs/client
 }
 
 add_typora_repo()
@@ -166,6 +172,8 @@ install_dotbash()
     # TODO: Download and install dotbash from Git.
 
     # bash <(curl -s https://dotbash.stigvoss.dk/install.sh)
+
+    echo "Install dotbash"
 }
 
 install
