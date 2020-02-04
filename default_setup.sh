@@ -103,7 +103,7 @@ install_virtualbox()
 install_vscode()
 {
     wget -O vscode.deb https://go.microsoft.com/fwlink/?LinkID=760868
-    sudo apt install -y vscode.deb
+    sudo apt install -y ./vscode.deb
 }
 
 install_discord()
