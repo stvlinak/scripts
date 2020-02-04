@@ -14,15 +14,6 @@ install()
 
     set_catchall_domain
 
-    sudo privileged_install
-
-    install_tresorit
-    install_keybase
-    install_dotbash
-}
-
-privileged_install()
-{
     add_typora_repo
     add_microsoft_repo
 
@@ -39,6 +30,14 @@ privileged_install()
 
     install_keepass2_plugins
     install_typora_themes
+
+    install_tresorit
+    install_keybase
+    install_dotbash
+}
+
+privileged_install()
+{
 }
 
 set_catchall_domain()
