@@ -11,11 +11,9 @@ install()
 
     add_typora_repo
     add_microsoft_repo
+    add_signal_repo
 
     install_apt_packages
-
-    add_signal_repo
-    install_signal
 
     replace_system_snap_packages
     install_snap_packages
@@ -46,7 +44,7 @@ init()
 
 add_signal_repo()
 {
-    curl -s https://updates.signal.org/desktop/apt/keys.asc | sudo apt-key add -
+    wget -qO - https://updates.signal.org/desktop/apt/keys.asc | sudo apt-key add -
     echo "deb [arch=amd64] https://updates.signal.org/desktop/apt xenial main" | sudo tee -a /etc/apt/sources.list.d/signal-xenial.list
 }
 
@@ -74,13 +72,6 @@ replace_system_snap_packages()
     sudo apt install -y gnome-calculator \
         gnome-system-monitor \
         gnome-characters
-}
-
-install_signal()
-{
-    sudo apt update
-
-    sudo apt install -y signal-desktop
 }
 
 install_snap_packages()
@@ -114,7 +105,8 @@ install_apt_packages()
         git \
         net-tools \
         xclip \
-        debconf-utils
+        debconf-utils \
+        signal-desktop
 }
 
 install_virtualbox()
