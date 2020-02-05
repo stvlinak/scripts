@@ -9,6 +9,7 @@ install()
 {
     init
 
+    add_signal_repo
     add_typora_repo
     add_microsoft_repo
 
@@ -41,6 +42,12 @@ init()
     . /etc/lsb-release
 }
 
+add_signal_repo()
+{
+    curl -s https://updates.signal.org/desktop/apt/keys.asc | sudo apt-key add -
+    echo "deb [arch=amd64] https://updates.signal.org/desktop/apt xenial main" | sudo tee -a /etc/apt/sources.list.d/signal-xenial.list
+}
+
 add_typora_repo()
 {
     wget -qO - https://typora.io/linux/public-key.asc | sudo apt-key add -
@@ -55,8 +62,6 @@ add_microsoft_repo()
     sudo add-apt-repository universe
 
     sudo apt install -y apt-transport-https
-
-    sudo apt update
 }
 
 replace_system_snap_packages()
@@ -71,8 +76,7 @@ replace_system_snap_packages()
 
 install_snap_packages()
 {
-    sudo snap install signal-desktop \
-        telegram-desktop
+    sudo snap install telegram-desktop
 
     if [[ $DISTRIB_RELEASE == "18.04" ]]; then
         sudo snap install communitheme
@@ -81,6 +85,8 @@ install_snap_packages()
 
 install_apt_packages()
 {
+    sudo apt update
+
     sudo apt install -y keepass2 \
         libreoffice \
         kolourpaint \
@@ -99,7 +105,8 @@ install_apt_packages()
         git \
         net-tools \
         xclip \
-        debconf-utils
+        debconf-utils \
+        signal-desktop
 }
 
 install_virtualbox()
