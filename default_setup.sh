@@ -9,11 +9,13 @@ install()
 {
     init
 
-    add_signal_repo
     add_typora_repo
     add_microsoft_repo
 
     install_apt_packages
+
+    add_signal_repo
+    install_signal
 
     replace_system_snap_packages
     install_snap_packages
@@ -74,6 +76,13 @@ replace_system_snap_packages()
         gnome-characters
 }
 
+install_signal()
+{
+    sudo apt update
+
+    sudo apt install -y signal-desktop
+}
+
 install_snap_packages()
 {
     sudo snap install telegram-desktop
@@ -105,8 +114,7 @@ install_apt_packages()
         git \
         net-tools \
         xclip \
-        debconf-utils \
-        signal-desktop
+        debconf-utils
 }
 
 install_virtualbox()
