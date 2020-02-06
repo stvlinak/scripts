@@ -110,7 +110,8 @@ install_apt_packages()
         net-tools \
         xclip \
         debconf-utils \
-        signal-desktop
+        signal-desktop \
+        htop
 }
 
 install_virtualbox()
