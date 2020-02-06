@@ -33,7 +33,7 @@ install()
     install_keybase
     install_dotbash
 
-    sudo apt autoremove
+    sudo apt autoremove -y
 }
 
 init()
