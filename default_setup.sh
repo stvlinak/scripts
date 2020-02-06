@@ -24,6 +24,8 @@ install()
     install_discord
     install_viber
 
+    install_teamviewer
+
     install_keepass2_plugins
     install_typora_themes
 
@@ -137,6 +139,12 @@ install_viber()
 {
     wget https://download.cdn.viber.com/cdn/desktop/Linux/viber.deb
     sudo apt install -y ./viber.deb
+}
+
+install_teamviewer()
+{
+    wget https://download.teamviewer.com/download/linux/teamviewer_amd64.deb -O teamviewer.deb
+    sudo apt install -y ./teamviewer.deb
 }
 
 install_keybase()
