@@ -30,6 +30,8 @@ install()
     install_tresorit
     install_keybase
     install_dotbash
+
+    sudo apt autoremove
 }
 
 init()
