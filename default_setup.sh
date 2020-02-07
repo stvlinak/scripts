@@ -131,7 +131,7 @@ install_apt_packages()
 install_minecraft()
 {
     wget https://launcher.mojang.com/download/Minecraft.deb
-    sudo apt install ./Minecraft.deb
+    sudo apt install -y ./Minecraft.deb
 }
 
 install_virtualbox()
