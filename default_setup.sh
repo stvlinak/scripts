@@ -10,7 +10,7 @@ install()
     init
 
     sudo apt update
-    sudo apt upgrade
+    sudo apt upgrade -y
 
     add_typora_repo
     add_microsoft_repo
