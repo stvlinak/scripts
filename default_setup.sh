@@ -15,6 +15,7 @@ install()
     add_typora_repo
     add_microsoft_repo
     add_signal_repo
+    add_wireguard_repo
 
     install_apt_packages
 
@@ -49,6 +50,11 @@ init()
     fi
 
     . /etc/lsb-release
+}
+
+add_wireguard_repo()
+{
+    sudo add-apt-repository ppa:wireguard/wireguard
 }
 
 add_signal_repo()
@@ -116,7 +122,8 @@ install_apt_packages()
         xclip \
         debconf-utils \
         signal-desktop \
-        htop
+        htop \
+        wireguard
 }
 
 install_virtualbox()
