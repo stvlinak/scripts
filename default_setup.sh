@@ -30,6 +30,8 @@ install()
 
     install_teamviewer
 
+    install_minecraft
+
     install_keepass2_plugins
     install_typora_themes
 
@@ -124,6 +126,12 @@ install_apt_packages()
         signal-desktop \
         htop \
         wireguard
+}
+
+install_minecraft()
+{
+    wget https://launcher.mojang.com/download/Minecraft.deb
+    sudo apt install ./Minecraft.deb
 }
 
 install_virtualbox()
