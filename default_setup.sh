@@ -9,6 +9,9 @@ install()
 {
     init
 
+    sudo apt update
+    sudo apt upgrade
+
     add_typora_repo
     add_microsoft_repo
     add_signal_repo
