@@ -237,6 +237,7 @@ install_extensions() {
 
         for extension_uuid in ${EXTENSIONS[@]}; do
             install_gnome_extension $extension_uuid
+            gnome-shell-extension-tool -e $extension_uuid
         done
     fi    
 }
