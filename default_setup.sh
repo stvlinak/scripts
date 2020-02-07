@@ -54,7 +54,7 @@ init()
 
 add_wireguard_repo()
 {
-    sudo add-apt-repository ppa:wireguard/wireguard
+    sudo add-apt-repository -y ppa:wireguard/wireguard
 }
 
 add_signal_repo()
