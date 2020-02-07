@@ -125,7 +125,8 @@ install_apt_packages()
         debconf-utils \
         signal-desktop \
         htop \
-        wireguard
+        wireguard \
+        lm-sensors
 }
 
 install_minecraft()
