@@ -230,6 +230,8 @@ install_gnome_extension()
 {
     EXTENSION_UUID=$1
 
+    mkdir -p ~/.local/share/gnome-shell/extensions/$EXTENSION_UUID
+
     wget -qO /tmp/$EXTENSION_UUID.zip https://extensions.gnome.org/download-extension/$EXTENSION_UUID.shell-extension.zip?shell_version=$GDM_VERSION
     unzip -n /tmp/$EXTENSION_UUID.zip -d ~/.local/share/gnome-shell/extensions/$EXTENSION_UUID
     rm /tmp/$EXTENSION_UUID.zip
