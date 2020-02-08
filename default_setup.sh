@@ -41,7 +41,22 @@ install()
     install_keybase
     install_dotbash
 
+    if [[ LAPTOP == 1 ]]; then
+        install_laptop_apt_packages
+        install_laptop_extensions
+    fi
+
     sudo apt autoremove -y
+}
+
+install_laptop_apt_packages()
+{
+    sudo apt install -y \
+        tlp \
+        tlp-rdw \
+        tp-smapi-dkms \
+        acpi-call \
+        dkms
 }
 
 init()
@@ -49,6 +64,18 @@ init()
     if [ "$EUID" -eq 0 ]; then
         echo "Please run unprivileged."
         exit
+    fi
+
+    if [[ -x "$(command -v gnome-shell)" ]]; then
+        GDM_VERSION=$(gnome-shell --version)
+        GDM_VERSION=${GDM_VERSION:12}
+    fi
+
+    CHASSIS_TYPE=$(sudo dmidecode --string chassis-type)
+
+    LAPTOP=0
+    if [[ $CHASSIS_TYPE =~ "Laptop" ]] || [[ $CHASSIS_TYPE =~ "Notebook" ]]; then
+        LAPTOP=1
     fi
 
     . /etc/lsb-release
@@ -104,7 +131,8 @@ install_apt_packages()
 {
     sudo apt update
 
-    sudo apt install -y keepass2 \
+    sudo apt install -y \
+        keepass2 \
         libreoffice \
         kolourpaint \
         gnome-tweaks \
@@ -217,14 +245,11 @@ install_typora_themes()
 
 install_extensions() {
     if [[ -x "$(command -v gnome-shell)" ]]; then
-        GDM_VERSION=$(gnome-shell --version)
-        GDM_VERSION=${GDM_VERSION:12}
-
         EXTENSIONS=(
             "caffeine@patapon.info"
             "clock-override@gnomeshell.kryogenix.org"
-            "dash-to-panel@jderose9.github.com"
             "freon@UshakovVasilii_Github.yahoo.com"
+            "dash-to-panel@jderose9.github.com"
             "gsconnect@andyholmes.github.io"
             "lockkeys@vaina.lt"
             "noannoyance@sindex.com"
@@ -241,6 +266,16 @@ install_extensions() {
             gnome-shell-extension-tool -e $extension_uuid
         done
     fi    
+}
+
+install_laptop_extensions()
+{
+    if [[ -x "$(command -v gnome-shell)" ]]; then
+            gnome-shell-extension-tool -d "dash-to-panel@jderose9.github.com"
+
+            install_gnome_extension "dash-to-dock@micxgx.gmail.com"
+            gnome-shell-extension-tool -e "dash-to-dock@micxgx.gmail.com"
+    fi
 }
 
 install_gnome_extension()
