@@ -154,7 +154,8 @@ install_apt_packages()
         signal-desktop \
         htop \
         wireguard \
-        lm-sensors
+        lm-sensors \
+        qrencode
 }
 
 install_minecraft()
