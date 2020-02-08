@@ -41,7 +41,7 @@ install()
     install_keybase
     install_dotbash
 
-    if [[ LAPTOP == 1 ]]; then
+    if [[ -n $LAPTOP ]]; then
         install_laptop_apt_packages
         install_laptop_extensions
     fi
@@ -73,9 +73,9 @@ init()
 
     CHASSIS_TYPE=$(sudo dmidecode --string chassis-type)
 
-    LAPTOP=0
+    LAPTOP=
     if [[ $CHASSIS_TYPE =~ "Laptop" ]] || [[ $CHASSIS_TYPE =~ "Notebook" ]]; then
-        LAPTOP=1
+        LAPTOP=$CHASSIS_TYPE
     fi
 
     . /etc/lsb-release
