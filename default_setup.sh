@@ -207,7 +207,7 @@ install_keybase()
 
 install_tresorit()
 {
-    wget https://github.com/stigvoss/scripts/blob/master/assets/tresorit_installer.run?raw=true -O tresorit_installer.run
+    wget https://installerstorage.blob.core.windows.net/public/install/tresorit_installer.run
     sh ./tresorit_installer.run
 }
 
