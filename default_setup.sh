@@ -166,6 +166,7 @@ install_minecraft()
 
 install_virtualbox()
 {
+    # Automatically accept virtualbox-ext-pack license agreement
     echo virtualbox-ext-pack virtualbox-ext-pack/license select true | sudo debconf-set-selections
 
     sudo apt install -y virtualbox \
