@@ -167,7 +167,7 @@ install_protonmail_bridge()
     PACKAGE_VERSION=$(echo "$PKGBUILD" | head -n 4 | tail -n 1)
     PACKAGE_RELEASE=$(echo "$PKGBUILD" | head -n 5 | tail -n 1)
 
-    wget https://protonmail.com/download/beta/protonmail-bridge_${PACKAGE_VERSION:7}-${PACKAGE_RELEASE:7}_amd64.deb -O protonmail-bridge.deb
+    wget https://protonmail.com/download/beta/protonmail-bridge_${PACKAGE_VERSION#pkgver=}-${PACKAGE_RELEASE#pkgrel=}_amd64.deb -O protonmail-bridge.deb
 
     sudo apt install -y ./protonmail-bridge.deb
 }
