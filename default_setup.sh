@@ -39,6 +39,8 @@ install()
 
     install_tresorit
     install_keybase
+    install_protonmail_bridge
+
     install_dotbash
 
     if [[ -n $LAPTOP ]]; then
@@ -47,16 +49,6 @@ install()
     fi
 
     sudo apt autoremove -y
-}
-
-install_laptop_apt_packages()
-{
-    sudo apt install -y \
-        tlp \
-        tlp-rdw \
-        tp-smapi-dkms \
-        acpi-call \
-        dkms
 }
 
 init()
@@ -118,6 +110,16 @@ replace_system_snap_packages()
         gnome-characters
 }
 
+install_laptop_apt_packages()
+{
+    sudo apt install -y \
+        tlp \
+        tlp-rdw \
+        tp-smapi-dkms \
+        acpi-call \
+        dkms
+}
+
 install_snap_packages()
 {
     sudo snap install telegram-desktop
@@ -156,6 +158,18 @@ install_apt_packages()
         wireguard \
         lm-sensors \
         qrencode
+}
+
+install_protonmail_bridge()
+{
+    PKGBUILD=$(curl https://protonmail.com/download/beta/PKGBUILD)
+
+    PACKAGE_VERSION=$(echo "$PKGBUILD" | head -n 4 | tail -n 1)
+    PACKAGE_RELEASE=$(echo "$PKGBUILD" | head -n 5 | tail -n 1)
+
+    wget https://protonmail.com/download/beta/protonmail-bridge_${PACKAGE_VERSION:7}-${PACKAGE_RELEASE:7}_amd64.deb -O protonmail-bridge.deb
+
+    sudo apt install -y ./protonmail-bridge.deb
 }
 
 install_minecraft()
