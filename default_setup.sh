@@ -157,7 +157,8 @@ install_apt_packages()
         htop \
         wireguard \
         lm-sensors \
-        qrencode
+        qrencode \
+        gnome-weather
 }
 
 install_protonmail_bridge()
