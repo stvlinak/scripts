@@ -199,8 +199,8 @@ install_vscode()
 
 install_discord()
 {
-    wget https://dl.discordapp.net/apps/linux/0.0.9/discord-0.0.9.deb
-    sudo apt install -y ./discord-0.0.9.deb
+    wget https://dl.discordapp.net/apps/linux/0.0.10/discord-0.0.10.deb -O discord.deb
+    sudo apt install -y ./discord.deb
 }
 
 install_viber()
