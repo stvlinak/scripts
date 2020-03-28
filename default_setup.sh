@@ -36,6 +36,7 @@ install()
     install_typora_themes
 
     install_extensions
+    configure_extensions
 
     install_tresorit
     install_keybase
@@ -304,6 +305,12 @@ install_gnome_extension()
     wget -qO /tmp/$EXTENSION_UUID.zip https://extensions.gnome.org/download-extension/$EXTENSION_UUID.shell-extension.zip?shell_version=$GDM_VERSION
     unzip -n /tmp/$EXTENSION_UUID.zip -d ~/.local/share/gnome-shell/extensions/$EXTENSION_UUID
     rm /tmp/$EXTENSION_UUID.zip
+}
+
+configure_extensions()
+{
+    wget -qO /tmp/dash-to-panel.conf https://raw.githubusercontent.com/stigvoss/dconf-files/master/dash-to-panel.conf
+    dconf load /org/gnome/shell/extensions/dash-to-panel/ < /tmp/dash-to-panel.conf
 }
 
 install_dotbash()
