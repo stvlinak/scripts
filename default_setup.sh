@@ -275,7 +275,6 @@ install_extensions() {
             "sound-output-device-chooser@kgshank.net"
             "suspend-button@laserb"
             "tweaks-system-menu@extensions.gnome-shell.fifi.org"
-            "unitylike-hotkey@webgyerek.net"
             "weatherintheclock@JasonLG1979.github.io"
         )
 
