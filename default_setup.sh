@@ -275,7 +275,6 @@ install_extensions() {
             "sound-output-device-chooser@kgshank.net"
             "suspend-button@laserb"
             "tweaks-system-menu@extensions.gnome-shell.fifi.org"
-            "unitylike-hotkey@webgyerek.net"
             "weatherintheclock@JasonLG1979.github.io"
         )
 
@@ -314,6 +313,26 @@ install_dotbash()
     # bash <(curl -s https://dotbash.stigvoss.dk/install.sh)
 
     echo "Install dotbash"
+}
+
+fetch_sensitive_setup_items()
+{
+    wget -q https://setup.stigvoss.dk/setup-items.luks
+
+    sudo mkdir -p /mnt/setup-items
+
+    sudo cryptsetup luksOpen setup-items.luks setup-items
+    sudo mount /dev/mapper/setup-items /mnt/setup-items
+
+    gedit --new-window /mnt/setup-items/passwords.txt &
+
+    sleep 0.5s
+
+    sudo umount /mnt/setup-items
+    sudo cryptsetup luksClose setup-items
+
+    sudo rm -R /mnt/setup-items
+    rm setup-items.luks
 }
 
 install
