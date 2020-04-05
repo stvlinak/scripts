@@ -277,6 +277,7 @@ install_extensions() {
             "suspend-button@laserb"
             "tweaks-system-menu@extensions.gnome-shell.fifi.org"
             "weatherintheclock@JasonLG1979.github.io"
+            "auto-move-windows@gnome-shell-extensions.gcampax.github.com"
         )
 
         for extension_uuid in ${EXTENSIONS[@]}; do
