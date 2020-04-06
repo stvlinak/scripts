@@ -278,6 +278,7 @@ install_extensions() {
             "tweaks-system-menu@extensions.gnome-shell.fifi.org"
             "weatherintheclock@JasonLG1979.github.io"
             "auto-move-windows@gnome-shell-extensions.gcampax.github.com"
+            "remove-alt-tab-delay@tetrafox.pw"
         )
 
         for extension_uuid in ${EXTENSIONS[@]}; do
