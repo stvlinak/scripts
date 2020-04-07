@@ -22,6 +22,8 @@ install()
     replace_system_snap_packages
     install_snap_packages
 
+    install_wireguard
+
     install_virtualbox
 
     install_vscode
@@ -76,7 +78,9 @@ init()
 
 add_wireguard_repo()
 {
-    sudo add-apt-repository -y ppa:wireguard/wireguard
+    if [[ ${DISTRIB_RELEASE:0:2} < 20 ]]; then
+        sudo add-apt-repository -y ppa:wireguard/wireguard
+    fi
 }
 
 add_signal_repo()
@@ -156,11 +160,19 @@ install_apt_packages()
         debconf-utils \
         signal-desktop \
         htop \
-        wireguard \
         lm-sensors \
         qrencode \
         gnome-weather \
         cryptsetup
+}
+
+install_wireguard()
+{
+    if [[ ${DISTRIB_RELEASE:0:2} < 20 ]]; then
+        sudo apt install -y wireguard
+    else
+        sudo apt install -y wireguard-dkms
+    fi
 }
 
 install_protonmail_bridge()
@@ -206,8 +218,12 @@ install_discord()
 
 install_viber()
 {
-    wget https://download.cdn.viber.com/cdn/desktop/Linux/viber.deb
-    sudo apt install -y ./viber.deb
+    if [[ $(apt-cache search libssl1.0.0) ]]; then
+        wget https://download.cdn.viber.com/cdn/desktop/Linux/viber.deb
+        sudo apt install -y ./viber.deb
+    else
+        echo "Viber dependency cannot be met."
+    fi
 }
 
 install_teamviewer()
