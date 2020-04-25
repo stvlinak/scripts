@@ -18,6 +18,7 @@ install()
     add_wireguard_repo
 
     install_apt_packages
+    install_microsoft_apt_packages
 
     replace_system_snap_packages
     install_snap_packages
@@ -125,6 +126,21 @@ install_laptop_apt_packages()
         dkms
 }
 
+install_microsoft_apt_packages()
+{
+    if [[ $(apt-cache search dotnet-sdk-3.1) ]]; then
+        sudo apt install -y dotnet-sdk-3.1
+    else
+        echo ".NET Core SDK cannot be found."
+    fi
+
+    if [[ $(apt-cache search powershell) ]]; then
+        sudo apt install -y powershell
+    else
+        echo "PowerShell Core cannot be found."
+    fi
+}
+
 install_snap_packages()
 {
     sudo snap install telegram-desktop
@@ -152,8 +168,6 @@ install_apt_packages()
         remmina \
         curl \
         openssh-server \
-        dotnet-sdk-3.0 \
-        powershell \
         git \
         net-tools \
         xclip \
