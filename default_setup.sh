@@ -86,8 +86,10 @@ add_wireguard_repo()
 
 add_signal_repo()
 {
-    wget -qO - https://updates.signal.org/desktop/apt/keys.asc | sudo apt-key add -
-    echo "deb [arch=amd64] https://updates.signal.org/desktop/apt xenial main" | sudo tee -a /etc/apt/sources.list.d/signal-xenial.list
+    if [[ ! -e /etc/apt/sources.list.d/signal-xenial.list ]]; then
+        wget -qO - https://updates.signal.org/desktop/apt/keys.asc | sudo apt-key add -
+        echo "deb [arch=amd64] https://updates.signal.org/desktop/apt xenial main" | sudo tee -a /etc/apt/sources.list.d/signal-xenial.list
+    fi
 }
 
 add_typora_repo()
