@@ -128,13 +128,13 @@ install_laptop_apt_packages()
 
 install_microsoft_apt_packages()
 {
-    if [[ $(apt-cache search ^dotnet-sdk-3.1$) ]]; then
+    if [[ $(apt-cache search "^dotnet-sdk-3.1$") ]]; then
         sudo apt install -y dotnet-sdk-3.1
     else
         echo ".NET Core SDK cannot be found."
     fi
 
-    if [[ $(apt-cache search ^powershell$) ]]; then
+    if [[ $(apt-cache search "^powershell$") ]]; then
         sudo apt install -y powershell
     else
         echo "PowerShell Core cannot be found."
@@ -232,11 +232,15 @@ install_discord()
 
 install_viber()
 {
-    if [[ $(apt-cache search ^libssl1.0.0$) ]]; then
-        wget https://download.cdn.viber.com/cdn/desktop/Linux/viber.deb
+    wget https://download.cdn.viber.com/cdn/desktop/Linux/viber.deb
+    if [[ $(apt-cache search "^libssl1.0.0$") ]]; then
         sudo apt install -y ./viber.deb
-    else
-        echo "Viber dependency cannot be met."
+    elif [[ $(apt-cache search "^libssl1.1$") ]]; then
+        dpkg-deb -x viber.deb viber
+        dpkg-deb --control viber.deb viber/DEBIAN
+        sed -i -e 's/libssl1.0.0/libssl1.1/g' viber/DEBIAN/control
+        dpkg -b viber viber-with-libssl1.1.deb
+        sudo apt install ./viber-with-libssl1.1.deb
     fi
 }
 
