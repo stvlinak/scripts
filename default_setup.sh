@@ -325,10 +325,10 @@ install_extensions() {
 install_laptop_extensions()
 {
     if [[ -x "$(command -v gnome-shell)" ]]; then
-            disable_gnome_extension "dash-to-panel@jderose9.github.com"
+        disable_gnome_extension "dash-to-panel@jderose9.github.com"
 
-            install_gnome_extension "dash-to-dock@micxgx.gmail.com"
-            enable_gnome_extension "dash-to-dock@micxgx.gmail.com"
+        install_gnome_extension "dash-to-dock@micxgx.gmail.com"
+        enable_gnome_extension "dash-to-dock@micxgx.gmail.com"
     fi
 }
 
