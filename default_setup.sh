@@ -317,7 +317,7 @@ install_extensions() {
 
         for extension_uuid in ${EXTENSIONS[@]}; do
             install_gnome_extension $extension_uuid
-            gnome-shell-extension-tool -e $extension_uuid
+            enable_gnome_extension $extension_uuid
         done
     fi    
 }
@@ -325,10 +325,10 @@ install_extensions() {
 install_laptop_extensions()
 {
     if [[ -x "$(command -v gnome-shell)" ]]; then
-            gnome-shell-extension-tool -d "dash-to-panel@jderose9.github.com"
+            disable_gnome_extension "dash-to-panel@jderose9.github.com"
 
             install_gnome_extension "dash-to-dock@micxgx.gmail.com"
-            gnome-shell-extension-tool -e "dash-to-dock@micxgx.gmail.com"
+            enable_gnome_extension "dash-to-dock@micxgx.gmail.com"
     fi
 }
 
@@ -336,11 +336,38 @@ install_gnome_extension()
 {
     EXTENSION_UUID=$1
 
-    mkdir -p ~/.local/share/gnome-shell/extensions/$EXTENSION_UUID
-
     wget -qO /tmp/$EXTENSION_UUID.zip https://extensions.gnome.org/download-extension/$EXTENSION_UUID.shell-extension.zip?shell_version=$GDM_VERSION
-    unzip -n /tmp/$EXTENSION_UUID.zip -d ~/.local/share/gnome-shell/extensions/$EXTENSION_UUID
+
+    if [[ -x "$(command -v gnome-extensions)" ]]; then
+        gnome-extensions install /tmp/$EXTENSION_UUID.zip
+    else
+        mkdir -p ~/.local/share/gnome-shell/extensions/$EXTENSION_UUID
+        unzip -n /tmp/$EXTENSION_UUID.zip -d ~/.local/share/gnome-shell/extensions/$EXTENSION_UUID
+    fi
+
     rm /tmp/$EXTENSION_UUID.zip
+}
+
+enable_gnome_extension()
+{
+    EXTENSION_UUID=$1
+
+    if [[ -x "$(command -v gnome-extensions)" ]]; then
+        gnome-extensions enable $EXTENSION_UUID
+    else
+        gnome-shell-extension-tool -e $EXTENSION_UUID
+    fi
+}
+
+disable_gnome_extensions()
+{
+    EXTENSION_UUID=$1
+
+    if [[ -x "$(command -v gnome-extensions)" ]]; then
+        gnome-extensions disable $EXTENSION_UUID
+    else
+        gnome-shell-extension-tool -d $EXTENSION_UUID
+    fi
 }
 
 configure_extensions()
