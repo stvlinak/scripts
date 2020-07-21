@@ -42,7 +42,6 @@ install()
     configure_extensions
 
     install_tresorit
-    install_keybase
     install_protonmail_bridge
 
     install_dotbash
