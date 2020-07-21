@@ -306,12 +306,9 @@ install_extensions() {
             "dash-to-panel@jderose9.github.com"
             "gsconnect@andyholmes.github.io"
             "lockkeys@vaina.lt"
-            "noannoyance@sindex.com"
             "panel-osd@berend.de.schouwer.gmail.com"
             "sound-output-device-chooser@kgshank.net"
-            "suspend-button@laserb"
             "tweaks-system-menu@extensions.gnome-shell.fifi.org"
-            "weatherintheclock@JasonLG1979.github.io"
             "auto-move-windows@gnome-shell-extensions.gcampax.github.com"
             "remove-alt-tab-delay@tetrafox.pw"
         )
